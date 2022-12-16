@@ -1,13 +1,18 @@
-import {React,useState} from "react";
+import { React, useState } from "react";
 import { useDispatch } from "react-redux";
-import { getDogs } from "../../Redux/Actions/Actions";
+import { getDogs, getNameDogs } from "../../Redux/Actions/Actions";
 
 export default function SearchBar(props) {
+  const [stateInput, setStateInput] = useState(""); //value del input
 
-    const [stateInput,setStateInput]=useState("")
-    const onSearch=(event)=>{
-      setStateInput(event.target.value)
-    }
+  const onSearch = (event) => {
+    setStateInput(event.target.value);
+  };
+  
+  const functionClick = () => {
+    dispatch(getNameDogs(stateInput))
+  };
+
   const dispatch = useDispatch();
 
   const clickReset = (e) => {
@@ -25,8 +30,10 @@ export default function SearchBar(props) {
       </button>
 
       <div>
-        <input onChange={onSearch} type="text" />
-        <button onClick={()=>props.onSearch(stateInput)}>Buscar</button>
+        <input onChange={(event) => onSearch(event)} type="text" />
+        <button type="submit" onClick={() => functionClick()}>
+          Buscar
+        </button>
       </div>
 
       <div>

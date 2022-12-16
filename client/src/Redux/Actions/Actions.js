@@ -10,3 +10,12 @@ export const getDogs=()=>{
         })
     }
 }
+export const getNameDogs=(name)=>{
+    return async (dispatch)=>{
+        var json = await axios.get(`http://localhost:3001/dogs?name=${name}`)
+        return dispatch({
+          type:"GET_NAME_DOGS",
+          payload:json.data
+        })
+      }
+}
