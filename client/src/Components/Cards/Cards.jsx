@@ -14,12 +14,14 @@ export const Cards = () => {
     dispatch(getDogs());
   }, [dispatch]);
 
+
   return (
     <div className="Cards">
       {allDogs?.map((ele) => {
         return (
           <div key={ele.id} >
             <Card
+              
               id={ele.id}
               image={ele.image}
               name={ele.name}
