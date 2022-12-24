@@ -1,15 +1,12 @@
-import React from 'react';
-import { Cards } from '../Cards/Cards';
-import SearchBar from '../SearchBar/SearchBar';
-
+import { Cards } from "../Cards/Cards";
 
 export default function Home() {
 
   return (
     <div>
       <div>
-      <Cards/>
+        <Cards />
       </div>
     </div>
-  )
+  );
 }

@@ -14,20 +14,20 @@ export const Cards = () => {
     dispatch(getDogs());
   }, [dispatch]);
 
-
   return (
     <div className="Cards">
       {allDogs?.map((ele) => {
         return (
           <div key={ele.id} >
             <Card
-              
               id={ele.id}
               image={ele.image}
               name={ele.name}
               temperament={ele.temperament}
               minWeight={ele.min_weight}
               maxWeight={ele.max_weight}
+              minHeight={ele.min_height}
+              maxHeight={ele.max_height}
             />
           </div>
         );
