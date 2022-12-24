@@ -2,6 +2,7 @@ const initialState = {
   dogs: [],
   allDogs: [],
   temperaments: [],
+  currentPage:1
 };
 
 function rootReducer(state = initialState, action) {
@@ -45,9 +46,14 @@ function rootReducer(state = initialState, action) {
         ...state,
         detail: action.payload,
       };
+      case "CAMBIAR_PAGINA":
+              return{
+                  ...state,
+                  currentPage: action.payload
+              }
       case 'ORDER_BY_LETTER':
-        const sortedLetter= action.payload === 'A-Z' ?
-            state.allDogs.sort(function(a,b){
+        const sortLetter= action.payload === 'A-Z' ?
+            state.dogs.sort(function(a,b){
                 if (a.name > b.name){
                     return 1
                 }
@@ -56,7 +62,7 @@ function rootReducer(state = initialState, action) {
                 }
                 return 0
             }) : 
-            state.allDogs.sort(function(a,b){
+            state.dogs.sort(function(a,b){
                 if (a.name > b.name){
                     return -1
                 }
@@ -67,7 +73,8 @@ function rootReducer(state = initialState, action) {
             })
         return {
             ...state,
-            dogs: sortedLetter
+            dogs: sortLetter,
+            currentPage:2
         }
     default:
       return {

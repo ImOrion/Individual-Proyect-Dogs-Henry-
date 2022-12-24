@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="App">
 
-      {location.pathname === "/" ? null : <NavBar/>}
+      {/* {location.pathname === "/" ? null : <NavBar/>} */}
       <Switch>  
       <Route exact path="/"component={Welcome}/>
       <Route path="/home" component={Home}/>

@@ -61,9 +61,9 @@ export const orderByLetter = (payload) => {
   };
 };
 
-export const setActualPage = (payload) => {
-  return {
-    type: "ACTUAL_PAGE",
-    payload,
-  };
-};
+
+export const cambiarPag = (Pagenumber) => {
+  return{
+   type: "CAMBIAR_PAGINA",
+  payload: Pagenumber++
+  } }

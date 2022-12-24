@@ -1,20 +1,14 @@
 import { React, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  getDogs,
-  getTemperaments,
-  getNameDogs,
-  fiteredByTemperament,
-  filterCreated,
-  orderByLetter,
-} from "../../Redux/Actions/Actions";
+import {cambiarPag, getDogs, getTemperaments, getNameDogs, fiteredByTemperament, filterCreated,
+orderByLetter} from "../../Redux/Actions/Actions";
 
 export default function SearchBar(props) {
 
   const dispatch = useDispatch();
 
-  const [order, setOrder] = useState("");
   const [stateInput, setStateInput] = useState(""); //value del input
+  
   const allTemperaments = useSelector((state) => state.temperaments);
 
   
@@ -23,9 +17,7 @@ export default function SearchBar(props) {
     setStateInput(event.target.value);
   };
 
-  const functionClick = () => {
-    dispatch(getNameDogs(stateInput));
-  };
+
 
   const clickReset = (e) => {
     e.preventDefault();
@@ -36,8 +28,14 @@ export default function SearchBar(props) {
   const orderSort = (e) => {
     e.preventDefault();
     dispatch(orderByLetter(e.target.value));
-    setOrder(`Ordered by ${e.target.value}`);
+    dispatch(cambiarPag(1))
   };
+
+  // const orderSort = (e) => {
+  //   e.preventDefault();
+  //   setOrder(e.target.value);
+  //   dispatch(orderByLetter(e.target.value));
+  // };
 
   const filteredTemperament = (e) => {
     dispatch(fiteredByTemperament(e.target.value));
@@ -46,6 +44,10 @@ export default function SearchBar(props) {
     dispatch(getTemperaments());
   }, [dispatch]);
 
+  useEffect(()=>{
+    dispatch(getNameDogs(stateInput))
+  },[stateInput])
+  
   const createdFilter = (e) => {
     dispatch(filterCreated(e.target.value));
   };
@@ -62,10 +64,7 @@ export default function SearchBar(props) {
       </button>
 
       <div>
-        <input type="text" onChange={(event) => onSearch(event)} />
-        <button type="submit" onClick={() => functionClick()}>
-          Search
-        </button>
+        <input type="text" onChange={(event) => onSearch(event)}/>
       </div>
 
       <div>
@@ -83,6 +82,7 @@ export default function SearchBar(props) {
           <option value="WeightDescendent">Weight Descendent</option>
         </select>
         <select onChange={(e) => orderSort(e)}>
+        <option selected disabled>Alfabeticamente</option>
           <option value="A-Z">A-Z</option>
           <option value="Z-A">Z-A</option>
         </select>
