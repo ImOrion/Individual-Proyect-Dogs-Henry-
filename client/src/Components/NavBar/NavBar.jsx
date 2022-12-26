@@ -7,7 +7,7 @@ export default function NavBar(props) {
     <div>
       <Link to="home">DOGS APP</Link>
       <SearchBar onSearch={props.onSearch} />
-      <Link to="/createdog">Crear Perro</Link>
+      <Link to="/createDog">Crear Perro</Link>
     </div>
   );
 }

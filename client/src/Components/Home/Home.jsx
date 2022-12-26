@@ -7,7 +7,6 @@ export default function Home() {
       <div>
         <NavBar/>
         <Cards/>
-
       </div>
     </div>
   );

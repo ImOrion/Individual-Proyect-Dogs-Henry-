@@ -25,7 +25,7 @@ export const Paginated = (props) => {
                        <button
                         key={index}
                         onClick={() => dispatch(actions.cambiarPag(page))}
-                        className={page == currentPage ? "active" : ""}>
+                        className={page === currentPage ? "active" : ""}>
                         {page}
                     </button>
 

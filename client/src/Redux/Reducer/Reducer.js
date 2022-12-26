@@ -2,7 +2,8 @@ const initialState = {
   dogs: [],
   allDogs: [],
   temperaments: [],
-  currentPage:1
+  currentPage: 1,
+  detail:[]
 };
 
 function rootReducer(state = initialState, action) {
@@ -46,36 +47,67 @@ function rootReducer(state = initialState, action) {
         ...state,
         detail: action.payload,
       };
-      case "CAMBIAR_PAGINA":
-              return{
-                  ...state,
-                  currentPage: action.payload
+    case "CAMBIAR_PAGINA":
+      return {
+        ...state,
+        currentPage: action.payload,
+      };
+    case "ORDER_BY_LETTER":
+      const sortLetter =
+        action.payload === "A-Z"
+          ? state.dogs.sort(function (a, b) {
+              if (a.name > b.name) {
+                return 1;
               }
-      case 'ORDER_BY_LETTER':
-        const sortLetter= action.payload === 'A-Z' ?
-            state.dogs.sort(function(a,b){
-                if (a.name > b.name){
-                    return 1
-                }
-                if (a.name < b.name){
-                    return -1
-                }
-                return 0
-            }) : 
-            state.dogs.sort(function(a,b){
-                if (a.name > b.name){
-                    return -1
-                }
-                if (a.name < b.name){
-                    return 1
-                }
-                return 0
+              if (a.name < b.name) {
+                return -1;
+              }
+              return 0;
             })
-        return {
-            ...state,
-            dogs: sortLetter,
-            currentPage:2
-        }
+          : state.dogs.sort(function (a, b) {
+              if (a.name > b.name) {
+                return -1;
+              }
+              if (a.name < b.name) {
+                return 1;
+              }
+              return 0;
+            });
+      return {
+        ...state,
+        dogs: sortLetter,
+        currentPage: 2,
+      };
+    case "ORDER_BY_WEIGHT":
+      const sortWeight =
+        action.payload === "WeightAscendent"
+          ? state.dogs.sort(function (a, b) {
+              if (parseInt(a.min_weight) > parseInt(b.min_weight)) {
+                return 1;
+              }
+              if (parseInt(a.min_weight) < parseInt(b.min_weight)) {
+                return -1;
+              }
+              return 0;
+            })
+          : state.dogs.sort(function (a, b) {
+              if (parseInt(a.max_weight) > parseInt(b.max_weight)) {
+                return -1;
+              }
+              if (parseInt(a.max_weight) < parseInt(b.max_weight)) {
+                return 1;
+              }
+              return 0;
+            });
+      return {
+        ...state,
+        dogs: sortWeight,
+        currentPage: 2,
+      };
+    case "POST_DOG":
+      return {
+        ...state,
+      };
     default:
       return {
         ...state,

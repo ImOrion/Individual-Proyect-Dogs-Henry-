@@ -1,23 +1,26 @@
 import { React, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {cambiarPag, getDogs, getTemperaments, getNameDogs, fiteredByTemperament, filterCreated,
-orderByLetter} from "../../Redux/Actions/Actions";
+import {
+  cambiarPag,
+  getDogs,
+  getTemperaments,
+  getNameDogs,
+  fiteredByTemperament,
+  filterCreated,
+  orderByLetter,
+  orderByWeight,
+} from "../../Redux/Actions/Actions";
 
 export default function SearchBar(props) {
-
   const dispatch = useDispatch();
 
   const [stateInput, setStateInput] = useState(""); //value del input
-  
-  const allTemperaments = useSelector((state) => state.temperaments);
 
-  
+  const allTemperaments = useSelector((state) => state.temperaments);
 
   const onSearch = (event) => {
     setStateInput(event.target.value);
   };
-
-
 
   const clickReset = (e) => {
     e.preventDefault();
@@ -25,17 +28,17 @@ export default function SearchBar(props) {
     dispatch(getDogs());
   };
 
-  const orderSort = (e) => {
+  const orderLetterSort = (e) => {
     e.preventDefault();
     dispatch(orderByLetter(e.target.value));
-    dispatch(cambiarPag(1))
+    dispatch(cambiarPag(1));
   };
 
-  // const orderSort = (e) => {
-  //   e.preventDefault();
-  //   setOrder(e.target.value);
-  //   dispatch(orderByLetter(e.target.value));
-  // };
+  const orderWeightSort = (e) => {
+    e.preventDefault();
+    dispatch(orderByWeight(e.target.value));
+    dispatch(cambiarPag(1));
+  };
 
   const filteredTemperament = (e) => {
     dispatch(fiteredByTemperament(e.target.value));
@@ -44,14 +47,13 @@ export default function SearchBar(props) {
     dispatch(getTemperaments());
   }, [dispatch]);
 
-  useEffect(()=>{
-    dispatch(getNameDogs(stateInput))
-  },[stateInput])
-  
+  useEffect(() => {
+    dispatch(getNameDogs(stateInput));
+  }, [stateInput]);
+
   const createdFilter = (e) => {
     dispatch(filterCreated(e.target.value));
   };
-
 
   return (
     <div>
@@ -64,7 +66,7 @@ export default function SearchBar(props) {
       </button>
 
       <div>
-        <input type="text" onChange={(event) => onSearch(event)}/>
+        <input type="text" onChange={(event) => onSearch(event)} />
       </div>
 
       <div>
@@ -76,13 +78,13 @@ export default function SearchBar(props) {
             </option>
           ))}
         </select>
-        <select>
-          <option value="AnyWeight">Any Weight</option>
+        <select onChange={(e) => orderWeightSort(e)}>
+          <option hidden>Order by weight</option>
           <option value="WeightAscendent">Weight Ascendent</option>
           <option value="WeightDescendent">Weight Descendent</option>
         </select>
-        <select onChange={(e) => orderSort(e)}>
-        <option selected disabled>Alfabeticamente</option>
+        <select onChange={(e) => orderLetterSort(e)}>
+          <option hidden>Order alphabetically</option>
           <option value="A-Z">A-Z</option>
           <option value="Z-A">Z-A</option>
         </select>
