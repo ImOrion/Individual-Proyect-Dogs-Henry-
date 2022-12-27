@@ -2,7 +2,7 @@ import React from 'react'
 import styles from "./Card.css"
 import { Link } from 'react-router-dom'
 export const Card =(props)=> {
-
+  console.log(props)
   return (
     <div className="Card">
       <Link to={`detail/${props.id}`}><h3>Name: {props.name}</h3></Link>

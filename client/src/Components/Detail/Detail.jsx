@@ -1,13 +1,12 @@
 import {React, useEffect} from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { getDetail } from '../../Redux/Actions/Actions';
-
+import { Link } from "react-router-dom";
 
 export default function Detail(props) {
 
   const dispatch = useDispatch()
     const myDog = useSelector((state) => state.detail)
-    console.log(props);
     useEffect(()=>{
         dispatch(getDetail(props.match.params.id))
     },[])
@@ -16,6 +15,9 @@ export default function Detail(props) {
     <div>
       {myDog.length > 0 ? 
             <div> 
+              <Link to="/home">
+              <button>HOME</button>
+            </Link>
                 <h1>{myDog[0].name}</h1>
                 <img alt={myDog.name} src={myDog[0].image}/>
                 <h3>Minimum Weight {myDog[0].min_weight}</h3>

@@ -4,12 +4,12 @@ import { useSelector, useDispatch } from "react-redux";
 
 
 export const Paginated = (props) => {
- const {charactersPerPage, allDogs } = props
+ const {dogPerPage, allDogs } = props
  const dispatch = useDispatch()
 
  const currentPage = useSelector(state => state.currentPage)
     let pages = [];
-    for (let i = 1; i <= Math.ceil(allDogs / charactersPerPage); i++) {
+    for (let i = 1; i <= Math.ceil(allDogs / dogPerPage); i++) {
         pages.push(i);
  }
 

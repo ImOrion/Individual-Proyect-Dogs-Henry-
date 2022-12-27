@@ -11,9 +11,9 @@ export const Cards = () => {
   const currentPage = useSelector(state => state.currentPage)
 
 
- const [charactersPerPage, setCharactersPerPage] = useState(8); //cuantas recetas x pagina
- const indexOfLastCharacter = currentPage * charactersPerPage; //pagina x cantidad  recetas en pagina
- const indexOfFirsChararacter = indexOfLastCharacter - charactersPerPage;
+ const [dogPerPage, setdogPerPage] = useState(8); //cuantas recetas x pagina
+ const indexOfLastCharacter = currentPage * dogPerPage; //pagina x cantidad  recetas en pagina
+ const indexOfFirsChararacter = indexOfLastCharacter - dogPerPage;
  const currentCharacters = allDogs.slice(indexOfFirsChararacter, indexOfLastCharacter); //agarra el indice del primero y del ultimo pj
 
   useEffect(() => {
@@ -26,7 +26,7 @@ export const Cards = () => {
 
     
     <div className="Cards">
-      <Paginated charactersPerPage={charactersPerPage}
+      <Paginated dogPerPage={dogPerPage}
                 allDogs={allDogs.length}
                 currentPage={currentPage}/>
       {currentCharacters?.map((ele) => {

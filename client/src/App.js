@@ -6,7 +6,6 @@ import Detail from './Components/Detail/Detail';
 import CreateDog from './Components/CreateDog/CreateDog';
 
 function App() {
-  const location = useLocation();
   return (
     <div className="App">
 
