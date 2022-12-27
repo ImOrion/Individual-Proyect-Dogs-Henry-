@@ -10,16 +10,18 @@ import {
   orderByLetter,
   orderByWeight,
 } from "../../Redux/Actions/Actions";
+import validate from "./Errors/Errors";
 
 export default function SearchBar(props) {
   const dispatch = useDispatch();
-
+  const[errors, setErrors] = useState("")
   const [stateInput, setStateInput] = useState(""); //value del input
 
   const allTemperaments = useSelector((state) => state.temperaments);
 
   const onSearch = (event) => {
     setStateInput(event.target.value);
+    setErrors(validate(event.target.value))
   };
 
   const clickReset = (e) => {
@@ -67,6 +69,7 @@ export default function SearchBar(props) {
 
       <div>
         <input type="text" onChange={(event) => onSearch(event)} />
+        {errors !== "" ? (<span>{errors}</span>) : <span></span>}
       </div>
 
       <div>

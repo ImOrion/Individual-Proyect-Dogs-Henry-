@@ -6,7 +6,8 @@ const {getAllInfo} = require("../../Controllers/Breed/All_Info.js")
     const id = req.params.id
     try {
         const idBreed = await getAllInfo()
-            const filterBreedById = await idBreed.filter(dog => dog.id === parseInt(id))
+            // const filterBreedById = await idBreed.filter(dog => dog.id === parseInt(id))
+            const filterBreedById = await idBreed.filter(dog => dog.id == id)
             if(filterBreedById.length)res.status(200).send(filterBreedById)
             else throw("no existe pa")
             // filterBreedById ?

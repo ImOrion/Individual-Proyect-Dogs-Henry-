@@ -25,7 +25,7 @@ export const Cards = () => {
   return (
 
     
-    <div className="Cards">
+    <div className={styles.Cards}>
       <Paginated dogPerPage={dogPerPage}
                 allDogs={allDogs.length}
                 currentPage={currentPage}/>
@@ -38,6 +38,7 @@ export const Cards = () => {
               image={ele.image}
               name={ele.name}
               temperament={ele.temperament}
+              Temperaments={ele.Temperaments}
               minWeight={ele.min_weight}
               maxWeight={ele.max_weight}
               minHeight={ele.min_height}
