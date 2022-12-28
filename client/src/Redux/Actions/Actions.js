@@ -83,3 +83,9 @@ export const postDog =(payload)=>{
   }
 }
 
+export const  emptyDetail = () => {
+  return {
+    type :"EMPTY_DETAIL",
+    payload:[],
+  }
+}

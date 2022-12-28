@@ -42,6 +42,7 @@ function rootReducer(state = initialState, action) {
         ...state,
         dogs: action.payload === "All" ? state.allDogs : dogsFiltered,
       };
+    case "EMPTY_DETAIL":
     case "GET_DETAIL":
       return {
         ...state,

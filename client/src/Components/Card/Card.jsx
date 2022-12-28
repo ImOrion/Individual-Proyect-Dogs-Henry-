@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 export const Card =(props)=> {
 
   return (
-    <div className={styles.Card}>
+    <div className="Card">
       <Link to={`detail/${props.id}`}><h3>Name: {props.name}</h3></Link>
       <h3>Temperament: {props.temperament}</h3>
       {props.Temperaments?props.Temperaments.map((ele)=><h3>{ele.name}</h3>):<p></p>}

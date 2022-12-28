@@ -1,7 +1,7 @@
 import { React, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { getDetail } from "../../Redux/Actions/Actions";
+import { getDetail, emptyDetail} from "../../Redux/Actions/Actions";
 
 export default function Detail(props) {
   const dispatch = useDispatch();
@@ -11,6 +11,14 @@ export default function Detail(props) {
     dispatch(getDetail(props.match.params.id));
   },[]);
 
+  useEffect (()=>{
+    return ()=>{
+        if(myDog){
+            dispatch(emptyDetail())
+        }
+    }
+
+},[dispatch,props.match.params.id])
   return (
     <div>
       <Link to="/home">

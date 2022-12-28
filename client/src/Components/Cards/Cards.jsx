@@ -25,10 +25,11 @@ export const Cards = () => {
   return (
 
     
-    <div className={styles.Cards}>
+    <div className="Cards">
       <Paginated dogPerPage={dogPerPage}
                 allDogs={allDogs.length}
-                currentPage={currentPage}/>
+                currentPage={currentPage}
+                />
       {currentCharacters?.map((ele) => {
         return (
 
@@ -47,8 +48,6 @@ export const Cards = () => {
           </div>
         );
       })}
-      
-
     </div>
   );
 };
