@@ -1,0 +1,17 @@
+.Card{
+    width: 400px;
+    height: 400px;
+    border-radius: 20px ;
+    box-shadow: 0 0 20px rgb(255, 199, 14);
+    margin: 15px;
+    backdrop-filter: blur(20px);
+    
+}
+.img{
+    width: 300px; 
+    height: 200px;
+    padding-bottom: 20px;
+    box-sizing: border-box;
+    
+
+}

@@ -1,0 +1,11 @@
+.pagination {
+    position: static;
+  }
+
+  .pagination button{
+    background-color: rgb(218, 159, 51);
+    backdrop-filter: blur(20px);
+    width: 100px;
+    height: 40px;
+    border-color: rgba(240, 248, 255, 0);
+  }

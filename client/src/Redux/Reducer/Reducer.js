@@ -3,7 +3,12 @@ const initialState = {
   allDogs: [],
   temperaments: [],
   currentPage: 1,
-  detail:[]
+  detail:[],
+  filtros:{
+    temp:"All",
+    ordenamiento:"2",
+    breed:"AllBreeds"
+  }
 };
 
 function rootReducer(state = initialState, action) {
@@ -48,7 +53,7 @@ function rootReducer(state = initialState, action) {
         ...state,
         detail: action.payload,
       };
-    case "CAMBIAR_PAGINA":
+    case "CHANGE_PAGE":
       return {
         ...state,
         currentPage: action.payload,
@@ -109,6 +114,24 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
       };
+      case "FILTER_TEMP":
+        return{
+          ...state,
+          filtros:{...state.filtros,temp:action.payload},
+          currentPage:1
+        }
+        case "FILTER_ORDER":
+        return{
+          ...state,
+          filtros:{...state.filtros,ordenamiento:action.payload},
+          currentPage:1
+        }
+        case "FILTER_BREED":
+        return{
+          ...state,
+          filtros:{...state.filtros,breed:action.payload},
+          currentPage:1
+        }
     default:
       return {
         ...state,

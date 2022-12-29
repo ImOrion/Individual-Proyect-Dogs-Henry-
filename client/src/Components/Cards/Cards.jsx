@@ -11,10 +11,10 @@ export const Cards = () => {
   const currentPage = useSelector(state => state.currentPage)
 
 
- const [dogPerPage, setdogPerPage] = useState(8); //cuantas recetas x pagina
- const indexOfLastCharacter = currentPage * dogPerPage; //pagina x cantidad  recetas en pagina
- const indexOfFirsChararacter = indexOfLastCharacter - dogPerPage;
- const currentCharacters = allDogs.slice(indexOfFirsChararacter, indexOfLastCharacter); //agarra el indice del primero y del ultimo pj
+ const [dogPerPage, setdogPerPage] = useState(8); //cuantas perros x pagina
+ const indexOfLastDog = currentPage * dogPerPage; //pagina x cantidad  perros en pagina
+ const indexOfFirsDog = indexOfLastDog - dogPerPage;
+ const currentDogs = allDogs.slice(indexOfFirsDog, indexOfLastDog); //agarra el indice del primero y del ultimo perro
 
   useEffect(() => {
     dispatch(getDogs());
@@ -26,11 +26,8 @@ export const Cards = () => {
 
     
     <div className="Cards">
-      <Paginated dogPerPage={dogPerPage}
-                allDogs={allDogs.length}
-                currentPage={currentPage}
-                />
-      {currentCharacters?.map((ele) => {
+      
+      {currentDogs?.map((ele) => {
         return (
 
           <div key={ele.id} >
@@ -48,6 +45,10 @@ export const Cards = () => {
           </div>
         );
       })}
+      <Paginated dogPerPage={dogPerPage}
+                allDogs={allDogs.length}
+                currentPage={currentPage}
+                />
     </div>
   );
 };

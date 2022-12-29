@@ -68,9 +68,9 @@ export const orderByWeight = (payload) => {
   };
 };
 
-export const cambiarPag = (Pagenumber) => {
+export const changePage = (Pagenumber) => {
   return {
-    type: "CAMBIAR_PAGINA",
+    type: "CHANGE_PAGE",
     payload: Pagenumber++,
   };
 };
@@ -78,7 +78,6 @@ export const cambiarPag = (Pagenumber) => {
 export const postDog =(payload)=>{
   return async (dispatch)=>{
     const response=await axios.post("http://localhost:3001/dogs/",payload)
-    console.log(response)
     return response
   }
 }

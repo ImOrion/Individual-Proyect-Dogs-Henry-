@@ -23,13 +23,13 @@ export default function CreateDog() {
     temperament: [],
   });
   const [errors, setErrors] = useState({});
-
-  const handleChange = (event) => {
+  
+  const onChange = (event) => {
     setInput({ ...input, [event.target.name]: event.target.value });
     setErrors(validate({ ...input, [event.target.name]: event.target.value }));
   };
 
-  const handleSelect = (event) => {
+  const buttonSelect = (event) => {
     setInput({
       ...input,
       temperament: [...input.temperament, event.target.value],
@@ -40,12 +40,10 @@ export default function CreateDog() {
         temperament: [...input.temperament, event.target.value],
       })
     );
-    console.log(input);
   };
 
-  const handleSumbit = (event) => {
+  const buttonSubmit = (event) => {
     event.preventDefault();
-    console.log(input);
     dispatch(postDog(input));
     if (
       errors.name ||
@@ -56,7 +54,7 @@ export default function CreateDog() {
     ) {
       alert("You need to complete the fields?");
     } else {
-      alert("Your dog has been created.");
+      alert("Your dog has been created correclty.");
       setInput({
         name: "",
         min_height: "",
@@ -71,7 +69,7 @@ export default function CreateDog() {
     }
   };
 
-  const handleTempDelete = (event) => {
+  const buttonTempDelete = (event) => {
     setInput({
       ...input,
       temperament: input.temperament.filter((temp) => temp !== event),
@@ -87,14 +85,14 @@ export default function CreateDog() {
       <Link to="/home">
         <button>Back</button>
       </Link>
-      <form onSubmit={(e) => handleSumbit(e)}>
+      <form onSubmit={(e) => buttonSubmit(e)}>
         <div>
           <label>Name: </label>
           <input
             type="text"
             value={input.name}
             name="name"
-            onChange={(e) => handleChange(e)}
+            onChange={(e) => onChange(e)}
           />
           {errors.name ? <span>{errors.name}</span> : <span></span>}
         </div>
@@ -104,7 +102,7 @@ export default function CreateDog() {
             type="text"
             value={input.min_height}
             name="min_height"
-            onChange={(e) => handleChange(e)}
+            onChange={(e) => onChange(e)}
           />
           {errors.min_height ? <span>{errors.min_height}</span> : <span></span>}
         </div>
@@ -114,7 +112,7 @@ export default function CreateDog() {
             type="text"
             value={input.max_height}
             name="max_height"
-            onChange={(e) => handleChange(e)}
+            onChange={(e) => onChange(e)}
           />
           {errors.max_height ? <span>{errors.max_height}</span> : <span></span>}
         </div>
@@ -124,7 +122,7 @@ export default function CreateDog() {
             type="text"
             value={input.min_weight}
             name="min_weight"
-            onChange={(e) => handleChange(e)}
+            onChange={(e) => onChange(e)}
           />
           {errors.min_weight ? <span>{errors.min_weight}</span> : <span></span>}
         </div>
@@ -134,7 +132,7 @@ export default function CreateDog() {
             type="text"
             value={input.max_weight}
             name="max_weight"
-            onChange={(e) => handleChange(e)}
+            onChange={(e) => onChange(e)}
           />
           {errors.max_weight ? <span>{errors.max_weight}</span> : <span></span>}
         </div>
@@ -144,7 +142,7 @@ export default function CreateDog() {
             type="text"
             value={input.life_span}
             name="life_span"
-            onChange={(e) => handleChange(e)}
+            onChange={(e) => onChange(e)}
           />
         </div>
         <div>
@@ -153,12 +151,12 @@ export default function CreateDog() {
             type="text"
             value={input.image}
             name="image"
-            onChange={(e) => handleChange(e)}
+            onChange={(e) => onChange(e)}
           />
         </div>
         <div>
           <label>Temperament: </label>
-          <select onChange={(e) => handleSelect(e)}>
+          <select onChange={(e) => buttonSelect(e)}>
             {temperament.map((temp) => (
               <option value={temp.name}>{temp.name}</option>
             ))}
@@ -191,7 +189,7 @@ export default function CreateDog() {
       {input.temperament.map((temp) => (
         <div>
           <span>{temp}</span>
-          <button onClick={() => handleTempDelete(temp)}>X</button>
+          <button onClick={() => buttonTempDelete(temp)}>X</button>
         </div>
       ))}
     </div>

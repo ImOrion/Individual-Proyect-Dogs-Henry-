@@ -1,0 +1,72 @@
+.container{
+    width: 40%;
+}
+
+
+.backButton {
+    -webkit-touch-callout: none;
+      -webkit-user-select: none;
+       -khtml-user-select: none;
+         -moz-user-select: none;
+          -ms-user-select: none;
+              user-select: none;
+          -webkit-tap-highlight-color: transparent;
+  }
+  
+  .backButton {
+      width: 150px;
+      height: 50px;
+      cursor: pointer;
+      font-size: 20px;
+      font-weight: bold;
+      color: rgb(0, 0, 0);
+      background: rgba(255, 0, 0, 0);
+      border: 2px solid black;
+      box-shadow: 5px 5px 0 black,
+          -5px -5px 0 black,
+          -5px 5px 0 black,
+          5px -5px 0 black;
+      transition: 500ms ease-in-out;
+  }
+  
+  .backButton:hover {
+      box-shadow: 20px 5px 0 black, -20px -5px 0 black;
+  }
+  
+  .backButton:focus {
+      outline: none;
+  }
+
+  
+  .datasection {
+  border: 25px solid rgba(69, 86, 17, 0.51);
+
+  backdrop-filter: blur(20px);
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
+  font-family: "Sniglet", cursive;
+  color: #000000e2;
+  width: 150vh;
+}
+
+.image{
+display: flex;
+position: absolute;
+flex-direction: row;
+margin-left: 0;
+width: 120vh;
+height: 60vh;
+}
+
+.img{
+    border-radius: 30px;
+    margin-top: 30px;
+    margin-left: 30px;
+}
+
+.info{
+display: flex;
+flex-direction: column;
+margin-left: 500px;
+margin-bottom: 50px;
+}

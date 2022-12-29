@@ -1,7 +1,7 @@
 import { React, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  cambiarPag,
+  changePage,
   getDogs,
   getTemperaments,
   getNameDogs,
@@ -14,36 +14,43 @@ import validate from "./Errors/Errors";
 
 export default function SearchBar(props) {
   const dispatch = useDispatch();
-  const[errors, setErrors] = useState("")
-  const [stateInput, setStateInput] = useState(""); //value del input
-
   const allTemperaments = useSelector((state) => state.temperaments);
+  const [errors, setErrors] = useState("");
+  const [stateInput, setStateInput] = useState(""); //value del input
+  const [name, setName] = useState("");
+  const [filter,setFilter]=useState(false);
+
 
   const onSearch = (event) => {
-    setStateInput(event.target.value);
-    setErrors(validate(event.target.value))
+    event.preventDefault();
+    dispatch(getNameDogs(name));
+  };
+  const onChange = (event) => {
+    event.preventDefault();
+    setName(event.target.value);
+    setErrors(validate(event.target.value));
   };
 
   const clickReset = (e) => {
     e.preventDefault();
-
     dispatch(getDogs());
   };
 
   const orderLetterSort = (e) => {
     e.preventDefault();
     dispatch(orderByLetter(e.target.value));
-    dispatch(cambiarPag(1));
+    dispatch(changePage(1));
   };
 
   const orderWeightSort = (e) => {
     e.preventDefault();
     dispatch(orderByWeight(e.target.value));
-    dispatch(cambiarPag(1));
+    dispatch(changePage(1));
   };
 
   const filteredTemperament = (e) => {
     dispatch(fiteredByTemperament(e.target.value));
+    dispatch(changePage(1));
   };
   useEffect(() => {
     dispatch(getTemperaments());
@@ -59,17 +66,10 @@ export default function SearchBar(props) {
 
   return (
     <div>
-      <button
-        onClick={(e) => {
-          clickReset(e);
-        }}
-      >
-        Volver a cargar todos los perros
-      </button>
-
       <div>
-        <input type="text" onChange={(event) => onSearch(event)} />
-        {errors !== "" ? (<span>{errors}</span>) : <span></span>}
+        <input type="text" onChange={(e) => onChange(e)} />
+        <button onClick={(event) => onSearch(event)}>Search</button>
+        {errors !== "" ? <span>{errors}</span> : <span></span>}
       </div>
 
       <div>
@@ -96,6 +96,13 @@ export default function SearchBar(props) {
           <option value="APIBreeds">API Breeds</option>
           <option value="DataBaseBreeds">Data Base Breeds</option>
         </select>
+        <button
+          onClick={(e) => {
+            clickReset(e);
+          }}
+        >
+          Volver a cargar todos los perros
+        </button>
       </div>
     </div>
   );
