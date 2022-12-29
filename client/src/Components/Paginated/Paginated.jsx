@@ -18,7 +18,7 @@ export const Paginated = (props) => {
       {currentPage !== 1 ? (
         <>
           <button onClick={() => dispatch(actions.changePage(currentPage - 1))}>
-            {"Prev"}
+            {"⇦"}
           </button>
           <button onClick={() => dispatch(actions.changePage(currentPage - 1))}>
             {currentPage - 1}
@@ -26,12 +26,12 @@ export const Paginated = (props) => {
         </>
       ) : (
         <>
-          <button disable>{"Prev"}</button>
+          <button disable>{"⇦"}</button>
           <button disable>{currentPage - 1}</button>
         </>
       )}
 
-      <button className="active">{currentPage}</button>
+      <button className={styles.active}>{currentPage}</button>
 
       {currentPage !== pages[pages.length - 1] ? (
         <>
@@ -39,13 +39,13 @@ export const Paginated = (props) => {
             {currentPage + 1}
           </button>
           <button onClick={() => dispatch(actions.changePage(currentPage + 1))}>
-            {"Next"}
+            {"⇨"}
           </button>
         </>
       ) : (
         <>
           <button disable>{currentPage + 1}</button>
-          <button disabled>{"Next"}</button>
+          <button disabled>{"⇨"}</button>
         </>
       )}
     </div>

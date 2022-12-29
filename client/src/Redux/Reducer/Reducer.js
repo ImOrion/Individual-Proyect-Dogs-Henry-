@@ -6,8 +6,8 @@ const initialState = {
   detail:[],
   filtros:{
     temp:"All",
-    ordenamiento:"2",
-    breed:"AllBreeds"
+    ordenamiento:"All",
+    breed:"All"
   }
 };
 

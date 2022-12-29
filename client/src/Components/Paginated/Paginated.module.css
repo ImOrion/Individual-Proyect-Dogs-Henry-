@@ -1,11 +1,26 @@
 .pagination {
-    position: static;
+    position: relative;
+    
   }
 
   .pagination button{
-    background-color: rgb(218, 159, 51);
+    background-color: rgb(192, 107, 28);
     backdrop-filter: blur(20px);
-    width: 100px;
-    height: 40px;
+    width: 60px;
+    height: 30px;
     border-color: rgba(240, 248, 255, 0);
+    border-radius: 14px;
+    transition: 500ms ease-in-out;
+    margin: 10px;
+  }
+
+  .pagination button:hover{
+    border-radius: 50%;
+    background-color: rgb(255, 149, 0);
+    transition: 1s;
+  }
+  .pagination .active{
+    width: 100px;
+    height: 50px;
+    
   }

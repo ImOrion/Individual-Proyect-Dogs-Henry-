@@ -1,17 +1,35 @@
 .Card{
-    width: 400px;
-    height: 400px;
+    width: 380px;
+    height: 480px;
     border-radius: 20px ;
-    box-shadow: 0 0 20px rgb(255, 199, 14);
+    box-shadow: 0 0 20px rgb(102, 82, 16);
     margin: 15px;
     backdrop-filter: blur(20px);
-    
+    transition: 500ms ease-in-out;
+}
+
+.Card:hover{
+    background: linear-gradient(to bottom right, #e75907, #FF9A5A);
+    transition: 1s;
+    box-shadow: red;
 }
 .img{
     width: 300px; 
     height: 200px;
     padding-bottom: 20px;
     box-sizing: border-box;
-    
+}
 
+
+.linkCard{
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+}
+.linkCard:hover{
+    color: white;
+    transition: 0.5s;
+}
+.nameDog{
+    padding-top: 15px;
+    color: #ff0000;
 }

@@ -2,7 +2,7 @@ import { React,useEffect ,useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getDogs } from "../../Redux/Actions/Actions";
 import { Card } from "../Card/Card";
-import styles from "./Cards.css"
+import styles from "../Cards/Cards.module.css"
 import {Paginated} from "../Paginated/Paginated"
 
 export const Cards = () => {
@@ -24,8 +24,14 @@ export const Cards = () => {
 
   return (
 
-    
-    <div className="Cards">
+    <div>
+      <div className={styles.paginated}>
+    <Paginated dogPerPage={dogPerPage}
+                allDogs={allDogs.length}
+                currentPage={currentPage}
+                />
+    </div>
+    <div className={styles.Cards}>
       
       {currentDogs?.map((ele) => {
         return (
@@ -45,10 +51,7 @@ export const Cards = () => {
           </div>
         );
       })}
-      <Paginated dogPerPage={dogPerPage}
-                allDogs={allDogs.length}
-                currentPage={currentPage}
-                />
+    </div>
     </div>
   );
 };

@@ -1,18 +1,24 @@
 .NavBar{
-
     background-image: url(https://static.vecteezy.com/system/resources/previews/006/431/802/original/seamless-dog-pattern-with-paw-prints-cat-foots-texture-pattern-with-doggy-pawprints-orange-dog-texture-hand-drawn-illustration-in-doodle-style-on-orange-background-vector.jpg);
     top: 0;
-    width: 100%;
+    width: 97%;
+    height: 10%;
     padding: 15px 20px;
     background-color: #333;
     font-size: 20px;
     color: #FFFFFF;
     border-radius: 60px;
     box-shadow: 0 0 20px rgb(255, 70, 14);
-    margin-right: 0%;
+    margin-left: 9px;
+    position: relative;
+    flex-direction: row;
     
 }
 
 .Home{
-
+    display:flex;
+    
+    white-space: nowrap;
+    position: fixed;
+margin: 0;
 }

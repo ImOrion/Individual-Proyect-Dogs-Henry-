@@ -5,8 +5,10 @@ export default function Home() {
 
   return (
     <div className={styles.Home}>
-      <div>
+       <div className={styles.container}>
         <NavBar/>
+        </div>
+      <div>
         <Cards/>
       </div>
     </div>

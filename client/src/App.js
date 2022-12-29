@@ -1,5 +1,5 @@
-import './App.css';
-import { Route, Switch,useLocation } from "react-router";
+import styles from "../src/App.module.css"
+import { Route, Switch } from "react-router";
 import Welcome from './Components/Welcome/Welcome'; 
 import Home from './Components/Home/Home';
 import Detail from './Components/Detail/Detail';
@@ -7,7 +7,7 @@ import CreateDog from './Components/CreateDog/CreateDog';
 
 function App() {
   return (
-    <div className="App">
+    <div className={styles.App}>
 
       {/* {location.pathname === "/" ? null : <NavBar/>} */}
       <Switch>  

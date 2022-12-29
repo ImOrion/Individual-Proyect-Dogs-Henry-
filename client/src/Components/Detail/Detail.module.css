@@ -1,7 +1,11 @@
 .container{
     width: 40%;
+    text-align: center;
 }
 
+.containerButton{
+    padding-bottom: 30px;
+}
 
 .backButton {
     -webkit-touch-callout: none;
@@ -39,34 +43,46 @@
 
   
   .datasection {
+  background-color: rgba(61, 30, 0, 0.493);
   border: 25px solid rgba(69, 86, 17, 0.51);
-
   backdrop-filter: blur(20px);
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
   font-family: "Sniglet", cursive;
   color: #000000e2;
   width: 150vh;
+  flex-direction: row;
 }
 
 .image{
-display: flex;
-position: absolute;
-flex-direction: row;
-margin-left: 0;
-width: 120vh;
-height: 60vh;
+    width: 60%;
+    margin: auto;
+    display: block;
+    padding-top: 30px;
 }
 
 .img{
+    
+    width: 50%;
+  margin: auto;
+  display: block;
     border-radius: 30px;
-    margin-top: 30px;
-    margin-left: 30px;
+    position: relative;
+    transition: 500ms ease-in-out;
+    
+    
+}
+.img:hover{
+    position: sticky;
+    width: 90%;
+    transition:  0.6s;
+    
 }
 
 .info{
 display: flex;
-flex-direction: column;
-margin-left: 500px;
+flex-direction: row;
+margin-left: 120px;
 margin-bottom: 50px;
+color: rgb(255, 155, 155);
 }

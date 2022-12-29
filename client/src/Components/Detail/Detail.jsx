@@ -25,22 +25,25 @@ export default function Detail(props) {
       {myDog.length > 0 ? (
         <div className={styles.datasection}>
           <div className={styles.image}><img className={styles.img} alt={myDog.name} src={myDog[0].image} /></div>
-          <div className={styles.info}><h1>{myDog[0].name}</h1>
+          <h1>{myDog[0].name}</h1>
+          <div className={styles.info}>
           <h2>Minimum Weight <h4>{myDog[0].min_weight}</h4></h2>
           <h2>Maximum Weight <h4>{myDog[0].max_weight}</h4></h2>
           <h2>Minimum Height <h4>{myDog[0].min_height}</h4></h2>
           <h2>Maximum Height <h4>{myDog[0].max_height}</h4></h2>
           <h2>Life Span <h4>{myDog[0].life_span}</h4></h2>
-          <h4>
-            Temperaments{" "}
+          <h2>
+            Temperaments: {" "}<br/>
             {Array.isArray(myDog[0].temperament)
               ? myDog[0].temperament.map((temp) => temp.name + " ")
               : myDog[0].temperament}
-          </h4></div>
+          </h2>
+          </div>
           <div className={styles.back}>
-        <Link to="/home">
+        <div className={styles.containerButton}><Link to="/home">
           <button className={styles.backButton}>Back</button>
         </Link>
+        </div>
       </div>
         </div>
       ) : (
