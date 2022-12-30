@@ -7,7 +7,7 @@ export default function Welcome() {
     <div className={styles.container}>
       <h1>The Dogs App!</h1>
       <Link to="/home">
-      <span><a href="#"></a></span>
+      <span><span></span></span>
       </Link>
       
     </div>

@@ -19,10 +19,9 @@ export default function SearchBar(props) {
   const dispatch = useDispatch();
   const allTemperaments = useSelector((state) => state.temperaments);
   const [errors, setErrors] = useState("");
-  const [stateInput, setStateInput] = useState(""); //value del input
   const [name, setName] = useState("");
 
-
+  
   const onSearch = (event) => {
     event.preventDefault();
     dispatch(getNameDogs(name));
@@ -58,9 +57,7 @@ export default function SearchBar(props) {
     dispatch(getTemperaments());
   }, [dispatch]);
 
-  useEffect(() => {
-    dispatch(getNameDogs(stateInput));
-  }, [stateInput]);
+
 
   const createdFilter = (e) => {
     dispatch(filterCreated(e.target.value));
@@ -68,22 +65,21 @@ export default function SearchBar(props) {
 
   return (
     <div className={styles.searchBar}>
-        <div class={styles.form__group}>
+        <div className={styles.form__group}>
     
           <input
-            class={styles.form__field}
+            className={styles.form__field}
             placeholder="Search Dog"
-            className={styles.inputSearch}
             type="text"
             onChange={(e) => onChange(e)}
           />
-          <label for="name" class="form__label"></label>
+          <label className="form__label"></label>
           <button
             className={styles.buttonSearchBar}
             onClick={(event) => onSearch(event)}
           >Search
           </button>
-          {errors !== "" ? <span>{errors}</span> : <span></span>}
+          {errors !== "" ? <span className={styles.errors}><strong>{errors}</strong></span> : <span></span>}
         </div>
         <div>
            <button

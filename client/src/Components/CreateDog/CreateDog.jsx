@@ -4,7 +4,7 @@ import { getTemperaments } from "../../Redux/Actions/Actions";
 import { useDispatch, useSelector } from "react-redux";
 import validate from "./Errors/Errors";
 import { postDog } from "../../Redux/Actions/Actions";
-
+import styles from "../CreateDog/CreateDog.module.css"
 
 export default function CreateDog() {
 
@@ -52,7 +52,7 @@ export default function CreateDog() {
       errors.min_weight ||
       errors.max_weight
     ) {
-      alert("You need to complete the fields?");
+      alert("You need to complete the fields to create new Dog(You need at least a temperament)");
     } else {
       alert("Your dog has been created correclty.");
       setInput({
@@ -81,73 +81,96 @@ export default function CreateDog() {
   },[]);
 
   return (
-    <div>
-      <Link to="/home">
-        <button>Back</button>
-      </Link>
-      <form onSubmit={(e) => buttonSubmit(e)}>
+    <div className={styles.containerForm}>
+      <div>
+      <div>
+        <div className={styles.containerButtonBack}>
+        <span>
+        <Link to="/home">
+        <button className={styles.buttonsForm}>Back</button>
+       </Link>
+        </span>
+      </div>
+      <form className={styles.form} onSubmit={(e) => buttonSubmit(e)}>
         <div>
-          <label>Name: </label>
+          <div>
           <input
+          className={styles.inputForm}
             type="text"
             value={input.name}
             name="name"
             onChange={(e) => onChange(e)}
-          />
-          {errors.name ? <span>{errors.name}</span> : <span></span>}
+            placeholder="Name"
+          /></div>
+          {errors.name ? <span className={styles.errors}>{errors.name}</span> : <span></span>}
         </div>
         <div>
-          <label>Minimun height: </label>
+          <div>
           <input
+          className={styles.inputForm}
+          placeholder="Minimun height"
             type="text"
             value={input.min_height}
             name="min_height"
             onChange={(e) => onChange(e)}
-          />
-          {errors.min_height ? <span>{errors.min_height}</span> : <span></span>}
+          /></div>
+          {errors.min_height ? <span className={styles.errors}>{errors.min_height}</span> : <span></span>}
         </div>
         <div>
-          <label>Maximum height: </label>
+          <div>
           <input
+          className={styles.inputForm}
+          placeholder="Maximum height"
             type="text"
             value={input.max_height}
             name="max_height"
             onChange={(e) => onChange(e)}
           />
-          {errors.max_height ? <span>{errors.max_height}</span> : <span></span>}
+          </div>
+          {errors.max_height ? <span className={styles.errors}>{errors.max_height}</span> : <span></span>}
         </div>
         <div>
-          <label>Minimun weight: </label>
+          <div className={styles.containerInput}>
           <input
+          className={styles.inputForm}
+          placeholder="Minimun weight"
             type="text"
             value={input.min_weight}
             name="min_weight"
             onChange={(e) => onChange(e)}
           />
-          {errors.min_weight ? <span>{errors.min_weight}</span> : <span></span>}
+          </div>
+          {errors.min_weight ? <span className={styles.errors}>{errors.min_weight}</span> : <span></span>}
         </div>
         <div>
-          <label>Maximum weight: </label>
+          <div>
           <input
+          className={styles.inputForm}
+          placeholder="Maximum weight"
             type="text"
             value={input.max_weight}
             name="max_weight"
             onChange={(e) => onChange(e)}
           />
-          {errors.max_weight ? <span>{errors.max_weight}</span> : <span></span>}
+          </div>
+          {errors.max_weight ? <span className={styles.errors}>{errors.max_weight}</span> : <span></span>}
         </div>
         <div>
-          <label>Life Span: </label>
           <input
+          className={styles.inputForm}
+          placeholder="Life Span"
             type="text"
             value={input.life_span}
             name="life_span"
             onChange={(e) => onChange(e)}
           />
         </div>
+        <br/>
+        <br/>
         <div>
-          <label>Image: </label>
           <input
+          className={styles.inputForm}
+          placeholder="Image"
             type="text"
             value={input.image}
             name="image"
@@ -155,18 +178,32 @@ export default function CreateDog() {
           />
         </div>
         <div>
-          <label>Temperament: </label>
-          <select onChange={(e) => buttonSelect(e)}>
+          <label>Temperaments</label>
+          <div>
+          <select className={styles.select} onChange={(e) => buttonSelect(e)}>
             {temperament.map((temp) => (
-              <option value={temp.name}>{temp.name}</option>
+              <option key={temp.name} value={temp.name}>{temp.name}</option>
             ))}
           </select>
+          </div>
           {errors.temperament && <p>{errors.temperament}</p>}
         </div>
-        <ul>
-          <li>{input.temperament.map((temp) => temp + ", ")}</li>
+        <div>
+        <ul className={styles.listTemps}>
+          <p className={styles.containerListTemps}>{input.temperament.map((temp) => temp + ", ")}</p>
         </ul>
+        </div>
+        {input.temperament.map((temp) => (
+        <div>
+          <div className={styles.temps}>
+          <span>{temp}</span>
+          <button className={styles.buttonsForm} onClick={() => buttonTempDelete(temp)}>X</button>
+          </div>
+        </div>
+      ))}
+      <div className={styles.containerButton}>
         <button
+        className={styles.createButton}
           type="submit"
           disabled={
             !input.name ||
@@ -185,13 +222,11 @@ export default function CreateDog() {
         >
           Create dog
         </button>
-      </form>
-      {input.temperament.map((temp) => (
-        <div>
-          <span>{temp}</span>
-          <button onClick={() => buttonTempDelete(temp)}>X</button>
         </div>
-      ))}
+      </form>
+     
+    </div>
+    </div>
     </div>
   );
 }

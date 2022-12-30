@@ -26,8 +26,8 @@ export const Paginated = (props) => {
         </>
       ) : (
         <>
-          <button disable>{"⇦"}</button>
-          <button disable>{currentPage - 1}</button>
+          <button disable="true">{"⇦"}</button>
+          <button disable="true">{currentPage - 1}</button>
         </>
       )}
 
@@ -44,8 +44,8 @@ export const Paginated = (props) => {
         </>
       ) : (
         <>
-          <button disable>{currentPage + 1}</button>
-          <button disabled>{"⇨"}</button>
+          <button disable="true">{currentPage + 1}</button>
+          <button disable="true">{"⇨"}</button>
         </>
       )}
     </div>

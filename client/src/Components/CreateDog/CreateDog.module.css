@@ -1,0 +1,237 @@
+.containerForm{
+    background-color: rgba(167, 106, 46, 0.493);
+    border: 25px solid rgba(255, 158, 12, 0.51);
+    backdrop-filter: blur(20px);
+    border-radius: 10px;
+    box-shadow: 40px 40px 40px rgba(0, 0, 0, 0.303);
+    font-family: "Sniglet", cursive;
+    text-align: center;
+    width: 100%;
+    margin-right: 100px;
+}
+
+
+.createButton {
+    width: 150px;
+    height: 50px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+    background: rgba(255, 0, 0, 0);
+    border: 2px solid black;
+    box-shadow: 5px 5px 0 black,
+        -5px -5px 0 black,
+        -5px 5px 0 black,
+        5px -5px 0 black;
+    transition: 500ms ease-in-out;
+    border-radius: 19px;
+}
+
+.createButton:hover {
+    box-shadow: 20px 5px 0 black, -20px -5px 0 black;
+}
+
+.createButton:focus {
+    outline: none;
+}
+.containerButton{
+    padding-top: 30px;
+    padding-bottom: 40px;
+}
+
+
+
+
+.errors{
+    font-size: 90%;
+    color: rgb(255, 0, 0);
+    font-style: oblique;
+    text-align: center;
+    position: sticky;
+    border-radius: 40px;
+  }
+  
+  
+  .errors {
+    
+    animation-name: parpadeo;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  
+    -webkit-animation-name:parpadeo;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+  }
+  
+  @-moz-keyframes parpadeo{  
+    0% { opacity: 1.0; }
+    50% { opacity: 0.0; }
+    100% { opacity: 1.0; }
+  }
+  
+  @-webkit-keyframes parpadeo {  
+    0% { opacity: 1.0; }
+    50% { opacity: 0.0; }
+     100% { opacity: 1.0; }
+  }
+  
+  @keyframes parpadeo {  
+    0% { opacity: 1.0; }
+     50% { opacity: 0.0; }
+    100% { opacity: 1.0; }
+  }
+
+
+
+
+.buttonsForm {
+    background: linear-gradient(to bottom right, #e75907, #FF9A5A);
+    border: 0;
+    border-radius: 12px;
+    color: #000000;
+    cursor: pointer;
+    display: inline-block;
+    font-family: -apple-system,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 2.5;
+    outline: transparent;
+    padding: 0 1rem;
+    text-align: center;
+    text-decoration: none;
+    transition: box-shadow .2s ease-in-out;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    margin-left: 45px;
+    
+  }
+  
+.buttonsForm:not([disabled]):focus {
+    box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+  }
+  
+  .buttonsForm:not([disabled]):hover {
+    box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(95, 84, 77, 0.5);
+  }
+
+  .containerButtonBack{
+    padding-top: 25px;
+    padding-bottom: 15px;
+  }
+
+
+
+
+  
+  .inputForm {
+    font-family: inherit;
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid rgb(255, 123, 0);
+    font-size: 1rem;
+    color: rgb(160, 77, 0);
+    background: transparent;
+    transition: border-color 0.2s;
+    align-items: center;
+
+  }
+  
+  .inputForm:focus {
+    padding-bottom: 6px;  
+    font-weight: 700;
+    border-width: 3px;
+    border-image: linear-gradient(to right, #f8d303,#ff0000);
+    border-image-slice: 1;
+  }
+  
+
+  form{
+    margin-top: 10px;
+    margin-left: 100px;
+    margin-right: 100px;
+  }
+
+
+
+  
+.select{
+  background: linear-gradient(to bottom right, #e75907, #FF9A5A);
+  border: 0;
+  border-radius: 12px;
+  color: #000000;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 2.5;
+  outline: transparent;
+  padding: 0 1rem;
+  text-align: center;
+  text-decoration: none;
+  transition: box-shadow .2s ease-in-out;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  margin: 10px;
+  padding: 10px;
+}
+
+
+.select:not([disabled]):hover {
+  box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(95, 84, 77, 0.5);
+}
+
+.select option{
+  background-color: #d98250;
+  border-radius: 15px;
+
+}
+.select::-webkit-scrollbar {
+  background-color: rgb(94, 48, 19);             
+}
+
+.listTemps{
+    background-color: rgb(255, 102, 0);
+    border-radius: 14px;
+    padding: 1%;
+}
+.containerListTemps{
+    display: flex;
+    flex-direction: row;
+    white-space: nowrap;
+    position: sticky;
+}
+
+.temps{
+    background: linear-gradient(to bottom right, #e75907, #FF9A5A);
+  border: 0;
+  border-radius: 12px;
+  color: #000000;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 2.5;
+  outline: transparent;
+  text-align: center;
+  text-decoration: none;
+  transition: box-shadow .2s ease-in-out;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  padding-top: 2%;
+  height: 50px;
+  padding-left: 0.1%;
+  padding-right: 0.1;
+  margin-top: 2%;
+
+}
